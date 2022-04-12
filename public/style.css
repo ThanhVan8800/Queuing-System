@@ -1,0 +1,42 @@
+.background {
+    position: relative;
+    top: -10px;
+    left: 50px;
+    height: 600px;
+}
+
+.system-title {
+    position: absolute;
+    width: 142px;
+    height: 54px;
+    left: 1200px;
+    top: 407px;
+    /* 34/34 Reg */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 51px;
+    /* or 150% */
+    text-align: center;
+    /* Orange/$-Orange-500 */
+    color: #FF7506;
+}
+
+.system-name {
+    position: absolute;
+    width: 361px;
+    height: 54px;
+    left: 1200px;
+    top: 454px;
+    /* 36/36 Xbold */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 54px;
+    /* identical to box height, or 150% */
+    text-align: center;
+    /* Orange/$-Orange-500 */
+    color: #FF7506;
+}
