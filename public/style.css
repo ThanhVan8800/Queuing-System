@@ -40,3 +40,197 @@
     /* Orange/$-Orange-500 */
     color: #FF7506;
 }
+
+.menu-bar {
+    position: absolute;
+    width: 200px;
+    height: 810px;
+    left: 0px;
+    top: 0px;
+    /* White */
+    background: #FFFFFF;
+    /* Dropdown */
+    box-shadow: 0px 4px 6px rgba(219, 219, 219, 0.5);
+    border-radius: 16px 0px 0px 16px;
+}
+
+.das {
+    position: absolute;
+    width: 200px;
+    height: 48px;
+    left: 0px;
+    top: 150px;
+    /* Orange/$-Orange-500 */
+    background: #FF7506;
+}
+
+.das-lb {
+    position: static;
+    width: 81px;
+    height: 24px;
+    left: 32px;
+    top: 12px;
+    /* 16/16 Bold */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    /* White */
+    color: #FFFFFF;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 8px;
+}
+
+.das1 {
+    position: absolute;
+    width: 200px;
+    height: 48px;
+    left: 0px;
+    top: 204px;
+    /* Orange/$-Orange-500 */
+    background: #FF7506;
+}
+
+.das-dev {
+    position: static;
+    width: 57px;
+    height: 24px;
+    left: 32px;
+    top: 12px;
+    /* 16/16 Bold */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    /* White */
+    color: #FFFFFF;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 8px;
+}
+
+.max {
+    position: absolute;
+    left: 37%;
+    right: 36.98%;
+    top: 28.14%;
+    bottom: 28.16%;
+    /* gray blue/gray 4 - place holder */
+    background: #7E7D88;
+}
+
+.btn-logout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    /* position: absolute; */
+    width: 176px;
+    height: 48px;
+    left: 12px;
+    top: 0px;
+    /* Orange/$-Orange-50 */
+    background: #FFF2E7;
+    border-radius: 8px;
+}
+
+.id-dev {
+    position: static;
+    width: 79px;
+    height: 24px;
+    left: 16px;
+    top: 12.5px;
+    /* 16/16 Bold */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    /* White */
+    color: #FFFFFF;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+    background-color: #FF9138;
+}
+
+.id-dev1 {
+    /* Tên thiết bị */
+    position: static;
+    width: 83px;
+    height: 24px;
+    left: 8px;
+    top: 12.5px;
+    /* 16/16 Bold */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    /* White */
+    color: #FFFFFF;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+    background-color: #FF9138;
+}
+
+.ad-dev {
+    margin-left: 50px;
+}
+
+.btn-create {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    margin-left: 5%;
+    /* position: absolute; */
+    width: 147px;
+    height: 48px;
+    left: 179px;
+    top: 0px;
+    /* Orange/$-Orange-400 */
+    background: #FF9138;
+    /* down */
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius: 8px;
+}
+
+.btn-cancel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    margin-left: 500px;
+    /* position: absolute; */
+    width: 147px;
+    height: 48px;
+    left: 0px;
+    top: 0px;
+    /* Orange/$-Orange-50 */
+    background: #FFF2E7;
+    /* Orange/$-Orange-400 */
+    border: 1.5px solid #FF9138;
+    box-sizing: border-box;
+    /* down */
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius: 8px;
+}

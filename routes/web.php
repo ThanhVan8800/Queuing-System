@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeviceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/logout',[App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
+
+Route::middleware(['auth']) -> group(function(){
+        Route::prefix('admin') -> group(function(){
+            Route::get('main',[MainController::class,'index']);
+            
+            Route::prefix('devices') -> group(function(){
+                    //thiết bị
+                    Route::resource('device',DeviceController::class);
+                    // Route::get('index',[DeviceController::class,'index']);
+                    // Route::get('add',[DeviceController::class,'create'])->name('create');
+                    // Route::post('add',[DeviceController::class,'store']);
+            });
+            
+        });
+});
