@@ -52,8 +52,14 @@
         </li>
         <a href="/admin" class="brand-link">
             <img src="/templates/admin/dist/img/flower.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-dark">AdminLTE 3</span>
+            
             </a>
+            <span class="brand-text font-weight-dark">
+                @auth
+                    <label for="">Xin chào</label> <br />
+                    {{Auth::user()->name}} 
+                @endauth
+            </span>
         <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -82,15 +88,13 @@
                         <!-- jquery validation -->
                         <div class="card card-primary mt-3">
                         <div class="card-header " style="background-color:#FF9138;">
-                            <h3 class="card-title">{{$title}} 
-                            
-                            </h3>
+                            <h3 class="card-title">{{$title}}</h3>
                         </div>
                         <!--NOI DUNG GHI O DAY-->
-                            @yield('content')
-                    <!-- right column -->
-                    <div class="col-md-6">
-                </div><!-- /.container-fluid -->
+                        @yield('content')
+                        <!-- right column -->
+                        <div class="col-md-6">
+                            </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
         </div>

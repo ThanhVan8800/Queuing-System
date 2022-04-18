@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Device;
+use DB;
+use Illuminate\Support\Str;
 class DeviceController extends Controller
 {
     /**
@@ -13,7 +15,9 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        $lstDevice = Device::all();
+        // $string = "aaaa aaaa aaa aaaaa aaaa aaa aaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        // dd(Str::of($string)->words(5));
+        $lstDevice = Device::orderByDesc('id')->paginate(7);
         return view('admin.device.list',[
             'title' => 'Thiết bị',
             'lstDevice' => $lstDevice
@@ -27,12 +31,12 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        
+        $lstDevice = Device::all();
 
 
         return view('admin.device.create',[
             'title' => 'Thêm thiết bị',
-            
+            'lstDevice' => $lstDevice
         ]);
     }
 
@@ -46,6 +50,7 @@ class DeviceController extends Controller
     {
         $data = $request->all();
         $device = new Device();
+        $device -> id_device = $data['id_device'];
         $device -> device_name = $data['device_name'];
         $device -> ip_address = $data['ip_address'];
         $device -> service_use = $data['service_use'];
@@ -63,9 +68,12 @@ class DeviceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Device $device)
     {
-        //
+        return view('admin.device.show',[
+            'title' => 'Quản lí thiết bị',
+            'device' => $device
+        ]);
     }
 
     /**
@@ -74,14 +82,15 @@ class DeviceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($device)
     {
-        $device = Device::find($id);
+        $device = Device::find($device);
+        $lstDevice = Device::all();
 
-
-        return view('admin.device.edit',[
+        return view('admin.device.update',[
             'title' => 'Cập nhật',
             'device' => $device,
+            'lstDevice' => $lstDevice
         ]);
     }
 
@@ -92,10 +101,10 @@ class DeviceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $device)
     {
         $data = $request->all();
-        $device =  Device::find($id);
+        $device =  Device::find($device);
         $device -> device_name = $data['device_name'];
         $device -> ip_address = $data['ip_address'];
         $device -> service_use = $data['service_use'];

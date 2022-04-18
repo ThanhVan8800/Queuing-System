@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
@@ -13,7 +16,13 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $lstService = Service::all();
+
+
+        return view('admin.service.list',[
+            'title' => 'Dich vu thiet bi',
+            'lstService' => $lstService
+        ]);
     }
 
     /**
@@ -23,7 +32,12 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        $lstService = Service::all();
+        return view('admin.service.create',[
+            'title' => 'Tạo dịch vụ',
+            'lstService' => $lstService
+            
+        ]);
     }
 
     /**
@@ -34,7 +48,25 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $data = $request->all();
+            $service = new Service();
+            $service->id_service = $data['id_service'];
+            $service->service_name = $data['service_name'];
+            $service->description = $data['description'];
+            $service->status = $data['status'];
+            $service->save();
+            Session::flash('success','Tạo thành công');
+        } catch(\Exception $err)
+        {
+                Session::flash('error',$err->getMessage());
+                return false;
+        }
+        
+        
+        
+
+        return redirect()->route('service.index');
     }
 
     /**
@@ -43,9 +75,14 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Service $service)
     {
-        //
+        
+
+        return view('admin.service.show',[
+            'title' => 'Chi tiết dịch vụ',
+            'service' => $service
+        ]);
     }
 
     /**
@@ -54,9 +91,15 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Service $service)
     {
-        //
+        $ser = Service::find($service);
+        $lstService = Service::all();
+
+        return view('admin.service.update',[
+            'title' => 'Cập nhật dịch vụ',
+            'lstService' => $lstService,
+        ]);
     }
 
     /**
@@ -66,9 +109,17 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Service $service)
     {
-        //
+        $data = $request->all();
+        $service = Service::find($service);
+        $service->id_service = $data['id_service'];
+        $service->service_name = $data['service_name'];
+        $service->description = $data['description'];
+        $service->status = $data['status'];
+        $service->save();
+
+        return redirect()->route('service.index');
     }
 
     /**

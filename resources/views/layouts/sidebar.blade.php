@@ -52,7 +52,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/admin/services/service" class="nav-link">
                                 <!-- <i class=" nav-icon far fa-images"></i> -->
                                 <i class="nav-icon far fa-solid fa-address-card"></i>
                                 <p>
@@ -63,12 +63,9 @@
                             
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href=""class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt "></i>
-                                <p>
                                     Cấp số
-                                    
-                                </p>
                                 </a>
                             
                             </li>

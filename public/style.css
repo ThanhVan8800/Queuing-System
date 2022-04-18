@@ -234,3 +234,46 @@
     box-shadow: 0px 0px 6px #E7E9F2;
     border-radius: 8px;
 }
+
+.page-item.active .page-link {
+    background-color: orange;
+    color: #fff
+}
+
+
+/* .summary {
+    position: relative;
+}
+
+p {
+    margin-bottom: 24px;
+    width: 200px;
+    height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+span {
+    cursor: pointer;
+    font-size: 13px;
+    color: grey;
+    position: absolute;
+    bottom: 3px;
+    right: 47px;
+} */
+
+.circle {
+    position: static;
+    width: 8px;
+    height: 8px;
+    left: 0px;
+    top: 6.5px;
+    /* Green */
+    background: #34CD26;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 4px;
+}

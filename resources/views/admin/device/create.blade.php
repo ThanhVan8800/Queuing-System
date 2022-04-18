@@ -12,51 +12,50 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label >Mã thiết bị: <span style="color:#FF4747;">*</span> </label>
-                                <input type="text" name="" class="form-control" id="exampleInputEmail1" placeholder="Nhập mã thiết bị">
+                                <input type="text" name="id_device" class="form-control" id="exampleInputEmail1" placeholder="Nhập mã thiết bị">
                             </div>
                             <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Loại thiết bị: <span style="color:#FF4747;">*</span></label>
-                                                            <select class="form-control select2" style="width: 100%;">
-                                                                <option selected="selected">Chọn loại thiết bị</option>
-                                                                <option>Alaska</option>
-                                                                <option>California</option>
-                                                                <option>Delaware</option>
-                                                                <option>Tennessee</option>
-                                                                <option>Texas</option>
-                                                                <option>Washington</option>
+                                                            <select class="form-control select2" name="type" style="width: 100%;">
+                                                                <option selected="selected" >Chọn loại thiết bị</option>
+                                                                @foreach ($lstDevice as $dev )
+                                                                    <option value="{{$dev->type}}">{{$dev->type}}</option>
+                                                                @endforeach
+                                                                
                                                             </select>
                                             </div>
+                                        
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label >Tên thiết bị: <span style="color:#FF4747;">*</span> </label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập tên thiết bị">
+                                <input type="text" name="device_name" class="form-control" id="exampleInputEmail1" placeholder="Nhập tên thiết bị">
                             </div>
                             <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Tên đăng nhập: <span style="color:#FF4747;">*</span></label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập tài khoản">
+                                                <input type="text" name="user_name" class="form-control" id="exampleInputEmail1" placeholder="Nhập tài khoản">
                                             </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label >Địa chỉ IP: <span style="color:#FF4747;">*</span> </label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập địa chỉ IP">
+                                <input type="text" name="ip_address" class="form-control" id="exampleInputEmail1" placeholder="Nhập địa chỉ IP">
                             </div>
                             <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Mật khẩu: <span style="color:#FF4747;">*</span></label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập mật khẩu">    
+                                                <input type="text" name="password" class="form-control" id="exampleInputEmail1" placeholder="Nhập mật khẩu">    
                                             </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label >Dịch vụ sử dụng: <span style="color:#FF4747;">*</span> </label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập dịch vụ sử dụng">
+                                <input type="text" name="service_use" class="form-control" id="exampleInputEmail1" placeholder="Nhập dịch vụ sử dụng">
                             </div>
                         
                         </div>
@@ -67,8 +66,10 @@
     </div>
     <div class="row">
 
-        <label for="" class="btn-cancel">Hủy bỏ</label>
-        <label for="" class="btn-create">Thêm thiết bị</label>
+        <!-- <label for="" class="btn-cancel">Hủy bỏ</label> -->
+        <a href="" ><label for="" class="btn-cancel">Hủy bỏ</label></a>
+        <button class="btn-create">Thêm thiết bị</button>
+        @csrf
     </div>
 </form>
 @endsection

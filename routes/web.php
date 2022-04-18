@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::middleware(['auth']) -> group(function(){
                     // Route::get('index',[DeviceController::class,'index']);
                     // Route::get('add',[DeviceController::class,'create'])->name('create');
                     // Route::post('add',[DeviceController::class,'store']);
+            });
+            Route::prefix('services')->group(function(){
+                    Route::resource('service', ServiceController::class);
             });
             
         });

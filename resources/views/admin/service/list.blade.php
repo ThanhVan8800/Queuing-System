@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card card-primary mt-3"><br>
-    <a href="{{route('device.create')}}">
+    <a href="{{route('service.create')}}">
         <label for="" class="ad-dev"><i class="fas fa-plus-circle" >Thêm thiết bị</i></label>
     </a>
     <div class="card-body">
@@ -44,54 +44,38 @@
                     <table class="table table-bordered">
                     <thead>
                         <tr>
-                        <th style="width: 90px; " class="id-dev" >Mã thiết bị</th>
-                        <th style="width: 99px; " class="id-dev1">Tên thiết bị</th>
-                        <th style="width: 138px;" class="id-dev">Địa chỉ IP</th>
+                        <th style="width: 90px; " class="id-dev" >Mã dịch vụ </th>
+                        <th style="width: 99px; " class="id-dev1">Tên dịch vụ</th>
+                        <th style="width: 138px;" class="id-dev">Mô tả</th>
                         <th style="width: 171px" class="id-dev">Trạng thái hoạt động</th>
-                        <th style="width: 145px;" class="id-dev">Trạng thái kết nối</th>
-                        <th style="width: 268px;" class="id-dev">Dịch vụ sử dụng</th>
                         <th style="width:82px" class="id-dev"></th>
                         <th style="width:82px" class="id-dev"></th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($lstDevice as $key => $device)
+                        @foreach ($lstService as  $serv)
                                     <tr>
-                                    
-                                        <td>{{$device->id_device}}</td>
-                                        <td>{{$device->device_name}}</td>
-                                        <td>
-                                            {{$device->ip_address}}
-                                        </td>
-                                        <td>
-                                            @if ($device->status == 1)
-                                                    Đang hoạt động
-                                            @else 
-                                                    Ngừng hoạt động
+                                        <td>{{$serv->id_service}}</td>
+                                        <td>{{$serv->service_name}}</td>
+                                        <td>{{$serv->description}}</td>
+                                        <td >
+                                            @if($serv->status == 1)
+                                                <span class="btn btn-success btn-xs"></span>Đang hoạt động
+                                            @else
+                                            <span class="btn btn-danger btn-xs"></span>Ngừng hoạt động
                                             @endif
                                         </td>
-                                        <td>{{$device->status_connect}}</td>
-                                        <td>
-                                            {{Illuminate\Support\Str::of($device->service_use)->words(3)}}
-                                            
-                                            <!-- <span>View Blog</span> -->
-                                        </td>
-                                        <td>
-                                            <a href="{{route('device.show',['device' => $device])}}">Chi tiết</a>
-                                        </td>
-                                        <td>
-                                            <a href="{{route('device.edit',['device' => $device])}}" >Cập nhật</a>
-                                        </td>
+                                        <td><a href="{{route('service.show',['service'=>$serv])}}">Chi tiết</a></td>
+                                        
+                                        <td><a href="{{route('service.edit',['service'=>$serv])}}">Cập nhật</a></td>
                                     </tr>
                         @endforeach
                     
                     </tbody>
                     </table>
     </div>
-    
 </div>
 <div class="card-footer clearfix">
-        {!!$lstDevice->links("pagination::bootstrap-4") !!}
 </div>
 @endsection
