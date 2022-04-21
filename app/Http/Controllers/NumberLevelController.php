@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Num_lv;
 
 class NumberLevelController extends Controller
 {
@@ -13,7 +14,11 @@ class NumberLevelController extends Controller
      */
     public function index()
     {
-        //
+        $lstNum = Num_lv::all();
+        return view('admin.number_lv.list',[
+            'title' => ' Danh sách cấp số',
+            'lstNum' => $lstNum
+        ]);
     }
 
     /**
@@ -23,7 +28,10 @@ class NumberLevelController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.number_lv.create',[
+                'title' => 'Create a new resource',
+                
+        ]);
     }
 
     /**

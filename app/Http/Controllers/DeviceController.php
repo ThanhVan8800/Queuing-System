@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Device;
+use App\Models\User;
 use DB;
 use Illuminate\Support\Str;
 class DeviceController extends Controller
@@ -17,10 +18,12 @@ class DeviceController extends Controller
     {
         // $string = "aaaa aaaa aaa aaaaa aaaa aaa aaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
         // dd(Str::of($string)->words(5));
+        $user = User::all();
         $lstDevice = Device::orderByDesc('id')->paginate(7);
         return view('admin.device.list',[
             'title' => 'Thiết bị',
-            'lstDevice' => $lstDevice
+            'lstDevice' => $lstDevice,
+            'user' => $user
         ]);
     }
 

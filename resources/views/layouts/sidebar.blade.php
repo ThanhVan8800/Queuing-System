@@ -63,7 +63,7 @@
                             
                             </li>
                             <li class="nav-item">
-                                <a href=""class="nav-link">
+                                <a href="/admin/num_lvs/numlv"class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt "></i>
                                     Cấp số
                                 </a>
@@ -80,12 +80,35 @@
                             
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                <!-- <i class="nav-icon far fa-calendar-alt "></i> -->
-                                <i class="nav-icon far fa-solid fa-calendar"></i>
-                                <p>
-                                    Cài đặt hệ thống
-                                </p>
+                                <a href="/admin/settings/setting" class="nav-link">
+                                        <!-- <i class="nav-icon far fa-calendar-alt "></i> -->
+                                        <i class="nav-icon far fa-solid fa-calendar"></i>
+                                        <p>
+                                            Cài đặt hệ thống
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <!-- ghi đường dẫn vô -->
+                                                <a href="/admin/users/user" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Quản lý tài khoản</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Quản lí vai trò </p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Nhật ký hoạt động </p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                            
                             </a>
                             
                             </li>                    

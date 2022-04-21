@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card card-primary mt-3"><br>
-    <a href="{{route('device.create')}}">
+    <a href="{{route('user.create')}}">
         <label for="" class="ad-dev"><i class="fas fa-plus-circle" >Thêm thiết bị</i></label>
     </a>
     <div class="card-body">
@@ -44,59 +44,54 @@
                     <table class="table table-bordered">
                     <thead>
                         <tr>
-                        <th style="width: 90px; " class="id-dev" >Mã thiết bị</th>
-                        <th style="width: 99px; " class="id-dev1">Tên thiết bị</th>
-                        <th style="width: 138px;" class="id-dev">Địa chỉ IP</th>
-                        <th style="width: 171px" class="id-dev">Trạng thái hoạt động</th>
-                        <th style="width: 145px;" class="id-dev">Trạng thái kết nối</th>
-                        <th style="width: 268px;" class="id-dev">Dịch vụ sử dụng</th>
+                        <th style="width: 90px; " class="id-dev" >Tên đăng nhập</th>
+                        <th style="width: 99px; " class="id-dev1">Họ tên</th>
+                        <th style="width: 138px;" class="id-dev">Số điện thoại</th>
+                        <th style="width: 171px" class="id-dev">Email</th>
+                        <th style="width: 145px;" class="id-dev">Vai trò</th>
+                        <th style="width: 268px;" class="id-dev">Trạng thái hoạt động</th>
+                        <th style="width:82px" class="id-dev">Hình</th>
                         <th style="width:82px" class="id-dev"></th>
-                        <th style="width:82px" class="id-dev"></th>
-
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($lstDevice as $key => $device)
-                                    <tr>
+                        
+                            @foreach ( $lstUser as  $key => $user )
                                     
-                                        <td>{{$device->id_device}}</td>
-                                        <td>{{$device->device_name}}</td>
+                                    <tr>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->username}}</td>
+                                        <td>{{$user->sdt}}</td>
+                                        <td>{{$user->email}}</td>
                                         <td>
-                                            {{$device->ip_address}}
-                                        </td>
-                                        <td>
-                                            @if ($device->status == 1)
-                                                    Đang hoạt động
+                                            @if ($user->role == 1)
+                                                Kế toán
                                             @else 
-                                                    Ngừng hoạt động
+                                                Admin
+                                            @endif
+                                            
+                                        </td>
+                                        <td value="{{$user->status}}">
+                                            @if ($user->status == 1)
+                                                Hoạt động
+                                            @else   
+
+                                            Ngưng hoạt động
                                             @endif
                                         </td>
-                                        <td>{{$device->status_connect}}</td>
+                                        <td><img style="width:100px;max-height:100px;object-fit:contain" src="{{asset('/storage/'.$user->thumb)}}"></td>
                                         <td>
-                                            {{Illuminate\Support\Str::of($device->service_use)->words(3)}}
-                                            
-                                            <!-- <span>View Blog</span> -->
+                                            <a href="{{route('user.edit',['user'=>$user])}}">Cập nhật</a>
                                         </td>
-                                        @if (Auth()->user()->isAdmin())
-                                            
-                                        <td>
-                                            <a href="{{route('device.show',['device' => $device])}}">Chi tiết</a>
-                                        </td>
-                                        <td>
-                                            <a href="{{route('device.edit',['device' => $device])}}" >Cập nhật</a>
-                                        </td>
-                                        
-                                        @endif
-                                        
                                     </tr>
-                        @endforeach
-                    
+                            
+                            @endforeach
                     </tbody>
                     </table>
     </div>
     
 </div>
 <div class="card-footer clearfix">
-        {!!$lstDevice->links("pagination::bootstrap-4") !!}
+        
 </div>
 @endsection

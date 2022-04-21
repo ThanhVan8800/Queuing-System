@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('num_lvs', function (Blueprint $table) {
-            $table->id();
-            $table->integer('stt');
-            $table->string('username',155);
-            $table->integer('status');
-            $table->string('')
-            $table->timestamps();
+        Schema::table('num_lvs', function (Blueprint $table) {
+            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('device_id')->references('id')->on('devices');
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('num_lvs');
+        Schema::table('num_lvs', function (Blueprint $table) {
+            //
+        });
     }
 };

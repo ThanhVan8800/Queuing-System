@@ -50,11 +50,14 @@
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
-        <a href="/admin" class="brand-link">
-            <img src="/templates/admin/dist/img/flower.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <a href="/admin/users/user/{{Auth::user()->id}}" class="brand-link">
+            @php
+                $thumb = '/storage/'.Auth::user()->thumb
+            @endphp
+            <img src="{{$thumb}}" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             
-            </a>
-            <span class="brand-text font-weight-dark">
+        </a>
+        <span class="brand-text font-weight-dark">
                 @auth
                     <label for="">Xin chào</label> <br />
                     {{Auth::user()->name}} 

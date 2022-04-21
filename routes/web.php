@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\ServiceController;
-
+use App\Http\Controllers\NumberLevelController;
+use App\Http\Controllers\SettingSystemController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +19,7 @@ use App\Http\Controllers\ServiceController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+        return view('welcome');
 });
 
 Auth::routes();
@@ -26,18 +29,29 @@ Route::post('/logout',[App\Http\Controllers\Auth\LoginController::class,'logout'
 
 Route::middleware(['auth']) -> group(function(){
         Route::prefix('admin') -> group(function(){
-            Route::get('main',[MainController::class,'index']);
-            
-            Route::prefix('devices') -> group(function(){
-                    //thiết bị
-                    Route::resource('device',DeviceController::class);
-                    // Route::get('index',[DeviceController::class,'index']);
-                    // Route::get('add',[DeviceController::class,'create'])->name('create');
-                    // Route::post('add',[DeviceController::class,'store']);
-            });
-            Route::prefix('services')->group(function(){
-                    Route::resource('service', ServiceController::class);
-            });
-            
+                Route::get('main',[MainController::class,'index']);
+                Route::get('userinfo',[UserController::class,'info']);
+                
+                Route::prefix('devices') -> group(function(){
+                        //thiết bị
+                        Route::resource('device',DeviceController::class);
+                        // Route::get('index',[DeviceController::class,'index']);
+                        // Route::get('add',[DeviceController::class,'create'])->name('create');
+                        // Route::post('add',[DeviceController::class,'store']);
+                });
+                Route::prefix('services')->group(function(){
+                        Route::resource('service', ServiceController::class);
+                });
+                Route::prefix('num_lvs')->group(function(){
+                        Route::resource('numlv', NumberLevelController::class);
+                });
+                Route::prefix('settings')->group(function(){
+                        Route::resource('setting', SettingSystemController::class);
+                });
+                Route::prefix('users')->group(function(){
+                        Route::resource('user', UserController::class);
+                });
+                //upload  
+                Route::post('upload/services',[UploadController::class,'store']);
         });
 });

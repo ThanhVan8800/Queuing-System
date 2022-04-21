@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NumLv extends Model
+class Num_lv extends Model
 {
     use HasFactory;
 }
