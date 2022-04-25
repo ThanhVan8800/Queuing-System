@@ -7,6 +7,8 @@ use App\Http\Controllers\NumberLevelController;
 use App\Http\Controllers\SettingSystemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +52,12 @@ Route::middleware(['auth']) -> group(function(){
                 });
                 Route::prefix('users')->group(function(){
                         Route::resource('user', UserController::class);
+                });
+                Route::prefix('settings')->group(function(){
+                        Route::resource('setting', RoleController::class);
+                });
+                Route::prefix('reports')->group(function(){
+                        Route::resource('report', ReportController::class);
                 });
                 //upload  
                 Route::post('upload/services',[UploadController::class,'store']);

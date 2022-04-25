@@ -51,13 +51,14 @@
                                 <label >Vai trò: <span style="color:#FF4747;">*</span> </label>
                                 <select class="form-control select2" name="role" style="width: 100%;">
                                                                 <option selected="selected" >Chọn vai trò</option>
-                                                            
+                                                                <option value="accountant" {{$lstUser->role == 'accountant' ? 'selected' :''}} >accountant</option>
+                                                                <option value="doctor" {{$lstUser->role == 'doctor' ? 'selected' :''}} >doctor</option>
+                                                                <option value="receptionist" {{$lstUser->role == 'receptionist' ? 'selected' :''}} >receptionist</option>
+                                                                <option value="manage" {{$lstUser->role == 'manage' ? 'selected' :''}} >manage</option>
+                                                                <option value="admin" {{$lstUser->role == 'admin' ? 'selected' :''}} >admin</option>
+                                                                <option value="superadmin" {{$lstUser->role == 'superadmin' ? 'selected' :''}} >superadmin</option>
                                                                 
-                                                                    <option value="1">Kế toán</option>
-                                                                    <option value="0">Admin</option>
-                                                        
-                                                        
-                                                                
+                                                                    
                                 </select>
                             </div>
                             <div class="col-md-6">

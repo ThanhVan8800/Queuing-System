@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('username');
+            $table->string('username')->nullable();
             $table->string('email')->unique();
             $table->string('thumb')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('sdt');
-            $table->enum('role',['writer','admin'])->default('writer');
-            $table->integer('status');
+            $table->string('sdt')->nullable();
+            $table->enum('role',['accountant','doctor','receptionist','manage','admin','superadmin'])->default('admin');
+            $table->integer('status')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

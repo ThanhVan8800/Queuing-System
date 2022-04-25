@@ -63,26 +63,32 @@
                                         <td>{{$user->username}}</td>
                                         <td>{{$user->sdt}}</td>
                                         <td>{{$user->email}}</td>
-                                        <td>
-                                            @if ($user->role == 1)
-                                                Kế toán
-                                            @else 
-                                                Admin
-                                            @endif
-                                            
-                                        </td>
+                                        <td value="{{$user->role}}">
+                                        @if ($user->role == 0)
+                                        accountant
+                                        @elseif ($user->role == 1) 
+                                        doctor
+                                        @elseif ($user->role == 2) receptionist
+                                        @elseif ($user->role == 3) manage
+                                        @elseif ($user->role == 4) admin
+                                        @elseif ($user->role == 5)
+                                        superadmin
+                                        @endif
+                                        
+                                        {{$user->role}}</td>
                                         <td value="{{$user->status}}">
                                             @if ($user->status == 1)
                                                 Hoạt động
                                             @else   
-
-                                            Ngưng hoạt động
+                                                Ngưng hoạt động
                                             @endif
                                         </td>
                                         <td><img style="width:100px;max-height:100px;object-fit:contain" src="{{asset('/storage/'.$user->thumb)}}"></td>
                                         <td>
                                             <a href="{{route('user.edit',['user'=>$user])}}">Cập nhật</a>
                                         </td>
+                                        <!-- @if(Auth()->user()->isAdmin()) -->
+                                        <!-- @endif -->
                                     </tr>
                             
                             @endforeach

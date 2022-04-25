@@ -70,7 +70,7 @@
                             
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/admin/reports/report" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt "></i>
                                 <p>
                                     Báo cáo
@@ -96,9 +96,9 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="" class="nav-link">
+                                                <a href="/admin/settings/setting" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
-                                                <p>Quản lí vai trò </p>
+                                                <p>Danh sách vai trò </p>
                                                 </a>
                                             </li>
                                             <li class="nav-item">

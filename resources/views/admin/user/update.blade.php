@@ -57,17 +57,17 @@
                             <div class="form-group col-md-6">
                                 <label >Vai trò: <span style="color:#FF4747;">*</span> </label>
                                 <select class="form-control select2" name="role" value="{{$user->role}}" style="width: 100%;">
-                                                                <option selected="selected" value="{{$user->role}}">
-                                                                    @if($user->role == 1)
-                                                                        Kế toán
-                                                                    @else 
-                                                                        Admin
-                                                                    @endif
+                                                                <option selected="selected" value="{{$user->role}}" name="role">
+                                                                        {{$user->role}}
                                                                 </option>
-                                                            
                                                                 
-                                                                    <option value="0">Kế toán  </option>
-                                                                    <option value="1">Admin   </option>
+                                                                <option value="accountant" {{$user->role == 'accountant' ? 'selected' :''}} >accountant</option>
+                                                                <option value="doctor" {{$user->role == 'doctor' ? 'selected' :''}} >doctor</option>
+                                                                <option value="receptionist" {{$user->role == 'receptionist' ? 'selected' :''}} >receptionist</option>
+                                                                <option value="manage" {{$user->role == 'manage' ? 'selected' :''}} >manage</option>
+                                                                <option value="admin" {{$user->role == 'admin' ? 'selected' :''}} >admin</option>
+                                                                <option value="superadmin" {{$user->role == 'superadmin' ? 'selected' :''}} >superadmin</option>
+                                                                
                                                             
                                                                 
                                                                 
@@ -76,9 +76,16 @@
                             <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Tình trạng: <span style="color:#FF4747;">*</span></label>
-                                                <select class="form-control select2" name="status" value="{{$user->role}}" style="width: 100%;">
-                                                                <option selected="selected" value="1" >Hoạt động</option>
-                                                                <option value="0" >Ngưng hoạt động</option>
+                                                <select class="form-control select2" name="status" value="{{$user->status}}" style="width: 100%;">
+                                                                <option selected="selected" value="{{$user->status}}" >
+                                                                    @if ($user->status == 1)
+                                                                        Hoạt động
+                                                                    @else 
+                                                                        Ngưng hoạt động    
+                                                                    @endif    
+                                                                </option>
+                                                                <option value="1" {{$user->status == '1' ? 'selected' :''}}>Hoạt động</option>
+                                                                <option value="0"{{$user->status == '0' ? 'selected' :''}}>Ngưng hoạt động</option>
                                                 </select>
                                             </div>
                             </div>
@@ -102,8 +109,7 @@
 
         <!-- <label for="" class="btn-cancel">Hủy bỏ</label> -->
         <a href="" ><label for="" class="btn-cancel">Hủy bỏ</label></a>
-        <button class="btn-create">Cập nhật</button>
-        <input type="submit" class="btn btn-primary mr-2" value="Cập nhật">
+        <input type="submit" class="btn-create" value="Cập nhật">
     </div>
 </form>
 @endsection

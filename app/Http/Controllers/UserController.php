@@ -127,29 +127,28 @@ class UserController extends Controller
         if($request->hasFile('thumb')){
             $user->thumb = $request->file('thumb')->store('thumb/us/'.$user->id,'public');
         }
-        // $data = $request->all();
+        $data = $request->all();
 
         // $user =  User::find($user);
-        // $user->username = $data['username'];
-        // $user->name = $data['name'];
-        // $user->email = $data['email'];
-        // $user->sdt = $data['sdt'];
-        // $user->password = bcrypt($data['password']);
-        // $user->role = $data['role'];
-        // $user->status = $data['status'];
-        $user->fill([
-            'username' => $request->input('username'),
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'sdt' => $request->input('sdt'),
-            'password' => Hash::make($request->input('password')),
-            'role' => $request->input('role'),
-            'status' => $request->input('status'),
-
-        ]);
+        $user->username = $data['username'];
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->sdt = $data['sdt'];
+        $user->password = Hash::make($data['password']);
+        $user->role = $data['role'];
+        $user->status = $data['status'];
+        // $user->fill([
+        //     'username' => $request->input('username'),
+        //     'name' => $request->input('name'),
+        //     'email' => $request->input('email'),
+        //     'sdt' => $request->input('sdt'),
+        //     'password' => Hash::make($request->input('password')),
+        //     'role' => $request->input('role'),
+        //     'status' => $request->input('status'),
+        // ]);
         $user->save();
         //return response()->json($user);
-        return Redirect::route('user.show',[
+        return Redirect::route('user.index',[
             'user' => $user
         ]);
     }

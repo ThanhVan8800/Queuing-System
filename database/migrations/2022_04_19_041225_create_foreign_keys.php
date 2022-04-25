@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('service_id')->references('id')->on('services');
             $table->foreign('device_id')->references('id')->on('devices');
         });
+        
     }
 
     /**
