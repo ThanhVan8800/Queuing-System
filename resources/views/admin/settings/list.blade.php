@@ -35,8 +35,12 @@
                     <tbody>
                         @foreach ($lstRole as $role)
                         <tr>
-                            <td>{{$role->role}}</td>
-                            <td>{{$role->user_id}}</td>
+                            <td value="{{4}}">{{$role->role}}</td>
+                            <td value="{{$lstUser}}">
+                            
+                                    {{$lstUser}}
+                            
+                            </td>
                             <td>{{$role->description}}</td>
                             <td>
                                 <a href="">Cập nhật</a>

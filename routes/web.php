@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +34,9 @@ Route::middleware(['auth']) -> group(function(){
         Route::prefix('admin') -> group(function(){
                 Route::get('main',[MainController::class,'index']);
                 Route::get('userinfo',[UserController::class,'info']);
-                
+                Route::prefix('dashboards')->group(function(){
+                        Route::resource('dashboard', DashboardController::class);
+                });
                 Route::prefix('devices') -> group(function(){
                         //thiết bị
                         Route::resource('device',DeviceController::class);

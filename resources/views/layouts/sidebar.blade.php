@@ -6,14 +6,14 @@
             <!-- Sidebar -->
             <div class="sidebar">
             <!-- Sidebar user (optional) -->
-                <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                    <img src="/templates/admin/dist/img/yua-mikami.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="/assets/img/logoAlta.png" class="" style="height: 100px;width: 150px;margin-left: 20px;" alt="User Image">
                     </div>
                     <div class="info">
-                    <a href="#" class="d-block">Alexander Thanh</a>
+                    
                     </div>
-                </div> -->
+                </div>
 
                 <!-- SidebarSearch Form -->
                 <div class="form-inline">
@@ -33,8 +33,8 @@
                         <!-- Add icons to the links using the .nav-icon class
                             with font-awesome or any other icon font library -->
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt "></i>
+                                <a href="/admin/dashboards/dashboard" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Dashboard
                                 
@@ -44,7 +44,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/devices/device" class="nav-link">
-                                        <i class="nav-icon far fa-calendar-alt "></i>
+                                        <i class="nav-icon fas fa-users"></i>
                                         <p>
                                             Thiết bị
                                             <!-- <i class="right fas fa-angle-left"></i> -->
@@ -54,7 +54,8 @@
                             <li class="nav-item">
                                 <a href="/admin/services/service" class="nav-link">
                                 <!-- <i class=" nav-icon far fa-images"></i> -->
-                                <i class="nav-icon far fa-solid fa-address-card"></i>
+                                <i class="nav-icon fab fa-product-hunt"></i>
+                                
                                 <p>
                                     Dịch vụ
                                 
@@ -70,17 +71,7 @@
                             
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/reports/report" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt "></i>
-                                <p>
-                                    Báo cáo
-                                
-                                </p>
-                                </a>
-                            
-                            </li>
-                            <li class="nav-item">
-                                <a href="/admin/settings/setting" class="nav-link">
+                                <a href="/admin/settings/setting" class="nav-link" >
                                         <!-- <i class="nav-icon far fa-calendar-alt "></i> -->
                                         <i class="nav-icon far fa-solid fa-calendar"></i>
                                         <p>
@@ -102,7 +93,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="" class="nav-link">
+                                                <a href="" class="nav-link" >
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Nhật ký hoạt động </p>
                                                 </a>
@@ -111,17 +102,28 @@
                             
                             </a>
                             
-                            </li>                    
+                            </li>        
+                            <li class="nav-item">
+                                <a href="/admin/reports/report" class="nav-link" style="margin-bottom:200px">
+                                <i class="nav-icon far fa-calendar-alt "></i>
+                                <p>
+                                    Báo cáo
+                                
+                                </p>
+                                </a>
+                            
+                            </li>
+                                        
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
                 </div>
                 @auth
-                    {{Auth::user()->name}} || 
+                    
                     <form action="{{route('logout')}}" method="post">
                         @csrf
-                        <input type="submit" value="Đăng xuất" class="btn btn-logout " style="color:#FF7506;">
-                        <i class="fas fa-sign-out-alt"></i></input>
+                        <input type="submit" value="Đăng xuất" class="btn btn-logout mt-5  " style="color:#FF7506;">
+                        <!-- <i class="fas fa-sign-out-alt"></i> -->
                     </form>
                 @endauth
                 <!-- <a href="" class="btn btn-logout " style="color:#FF7506;">

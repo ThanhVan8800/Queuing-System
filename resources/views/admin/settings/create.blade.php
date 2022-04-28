@@ -12,7 +12,7 @@
                         <div class="row">
                                 <div class="form-group col-md-6">
                                     <label >Tên vai trò: <span style="color:#FF4747;">*</span> </label>
-                                    <input type="text" name="" class="form-control" id="exampleInputEmail1" placeholder="Nhập mã thiết bị">
+                                    <input type="text" name="role" class="form-control" id="exampleInputEmail1" placeholder="Nhập mã thiết bị">
                                     <label >Mô tả: <span style="color:#FF4747;">*</span> </label><br />
                                     <textarea name="description"  class="textarea"id="" cols="88" rows="4"></textarea>
                                 </div>
@@ -44,7 +44,7 @@
                                                             <div class="form-group">
                                                                         <div class="">
                                                                                 <input class="" type="checkbox" id="" value="">
-                                                                                <label   >Tất cả</label>
+                                                                                <label>Tất cả</label>
                                                                         </div>
                                                                         <div class="">
                                                                                 <input class="" type="checkbox" id="" value="">

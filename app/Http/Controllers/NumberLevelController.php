@@ -42,7 +42,7 @@ class NumberLevelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -51,9 +51,11 @@ class NumberLevelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Num_lv $numLv)
     {
-        //
+        return view('admin.number_lv.show',[
+            'title' =>'s'
+        ]);
     }
 
     /**

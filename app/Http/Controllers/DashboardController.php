@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Role;
-use App\Models\User;
 
-class RoleController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +13,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $lstRole = Role::all();
-        $lstUser = User::where('role','admin')->count();
-        return view('admin.settings.list',[
-            'title' => 'Danh sách vai trò',
-            'lstRole' => $lstRole,
-            'lstUser' => $lstUser
+        return view('admin.dashboards.index',[
+            'title' => 'da'
         ]);
     }
 
@@ -31,9 +25,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.settings.create',[
-            'title' => 'Create a new resource',
-        ]);
+        //
     }
 
     /**
@@ -44,14 +36,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $role = new Role();
-        $role->description = $data['description'];
-        $role->role = $data['role'];
-        // $role->status = $data['chuc_nang'];
-        $role->save();
-
-        return redirect()->route('setting.index');
+        //
     }
 
     /**

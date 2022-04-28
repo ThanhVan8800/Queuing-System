@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card card-primary mt-3"><br>
-    <a href="{{route('service.create')}}">
+    <a href="{{route('numlv.create')}}">
         <label for="" class="ad-dev"><i class="fas fa-plus-circle" >Thêm thiết bị</i></label>
     </a>
     <div class="card-body">
@@ -76,7 +76,9 @@
                                     <td>{{$numbers->hsd}}</td>
                                     <td>{{$numbers->status}}</td>
                                     <td>{{$numbers->device_id}}</td>
-                                    <td></td>
+                                    <td>
+                                        <a href="{{route('numlv.show',['numlv'=>$numbers])}}">Chi tiết</a>
+                                    </td>
                                 </tr>
                         
                         @endforeach

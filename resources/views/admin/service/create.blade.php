@@ -36,11 +36,36 @@
                                                     </div>
                                             </div>
                             </div>
+                            <div class="form-group col-md-6">
+                                        <label style="color:#FF7506;">Quy tắc cấp số</label>
+                                        <!-- checkbox -->
+                                        <!-- checkbox -->
+                                                        <div class="form-group">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
+                                                                <label for="customCheckbox1" class="custom-control-label">Tăng tự động từ:</label>
+                                                                <span class="num">0001</span> đến <span class="num">9999</span>
+                                                            </div><br>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input class="custom-control-input" type="checkbox" id="customCheckbox2" checked>
+                                                                <label for="customCheckbox2" class="custom-control-label">Prefix :</label>
+                                                                <span class="num">0001</span>
+                                                            </div><br>
+                                                            
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input class="custom-control-input " type="checkbox" id="customCheckbox4" checked>
+                                                                <label for="customCheckbox4" class="custom-control-label">Surfix :</label>
+                                                                <span class="num">0001</span>
+                                                            </div><br>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input class="custom-control-input " type="checkbox" id="customCheckbox5" checked>
+                                                                <label for="customCheckbox5" class="custom-control-label">Reset mỗi ngày</label>
+                                                            </div>
+                                                            
+                                                        
+                                </div>   
                         </div>
-                        <div class="row">
-                            <label for="">Quy tắc cấp số</label>
-                            
-                        </div>
+                    
                         <div class="row">
                             
                         
