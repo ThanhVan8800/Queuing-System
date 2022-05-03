@@ -54,7 +54,7 @@
                             <li class="nav-item">
                                 <a href="/admin/services/service" class="nav-link">
                                 <!-- <i class=" nav-icon far fa-images"></i> -->
-                                <i class="nav-icon fab fa-product-hunt"></i>
+                                <i class="nav-icon fas fa-comments"></i>
                                 
                                 <p>
                                     Dịch vụ

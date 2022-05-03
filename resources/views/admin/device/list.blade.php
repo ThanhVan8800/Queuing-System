@@ -77,8 +77,7 @@
                                             
                                             <!-- <span>View Blog</span> -->
                                         </td>
-                                        @if (Auth()->user()->isAdmin())
-                                            
+                                        
                                         <td>
                                             <a href="{{route('device.show',['device' => $device])}}">Chi tiết</a>
                                         </td>
@@ -86,7 +85,7 @@
                                             <a href="{{route('device.edit',['device' => $device])}}" >Cập nhật</a>
                                         </td>
                                         
-                                        @endif
+                                        
                                         
                                     </tr>
                         @endforeach
@@ -100,3 +99,5 @@
         {!!$lstDevice->links("pagination::bootstrap-4") !!}
 </div>
 @endsection
+<!-- @if (Auth()->user()->isAdmin()) -->
+                                        <!-- @endif -->
