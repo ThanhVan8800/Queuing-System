@@ -77,8 +77,6 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        
-
         return view('admin.service.show',[
             'title' => 'Chi tiết dịch vụ',
             'service' => $service

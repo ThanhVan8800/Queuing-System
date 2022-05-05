@@ -3,6 +3,11 @@
 <link rel="stylesheet" href="/info.css">
 
 @endsection
+@section('url')
+<li class="nav-item d-none d-sm-inline-block">
+            <a href="index3.html" class="nav-link">Dashboard <span class=""> > </span>Thiết bị<span class=""> > </span>Chi tiết</a>
+</li>
+@endsection
 @section('content')
 <form action="{{route('user.update',['user' => $user])}}" method="post" enctype="multipart/form">
             @method('PATCH')

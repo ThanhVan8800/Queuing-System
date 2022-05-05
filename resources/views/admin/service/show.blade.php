@@ -1,5 +1,9 @@
 @extends('layouts.main')
-
+@section('url')
+<li class="nav-item d-none d-sm-inline-block">
+            <a href="index3.html" class="nav-link">Dashboard <span class=""> > </span>Thiết bị<span class=""> > </span>Chi tiết</a>
+</li>
+@endsection
 @section('content')
 <div class="card card-primary mt-3">
         <div class="card-body">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Num_lv;
+use App\Models\Service;
 
 class NumberLevelController extends Controller
 {
@@ -28,10 +29,13 @@ class NumberLevelController extends Controller
      */
     public function create()
     {
+        $ser = Service::pluck('service_name','id');
+        $lstNum = Num_lv::with('service')->where('status',0)->get();
         return view('admin.number_lv.create',[
                 'title' => 'Create a new resource',
                 
-        ]);
+                
+        ],compact('lstNum','ser'));
     }
 
     /**
@@ -42,7 +46,20 @@ class NumberLevelController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $data = $request->all();
+        $num_lv = new Num_lv();
+        // $num_lv->stt = $data['stt'];
+        // $num_lv->user_name = $data['user_name'];
+        // $num_lv->hsd = $data['hsd'];
+        // $num_lv->status = $data['status'];
+        // $num_lv->sdt = $data['sdt'];
+        // $num_lv->email = $data['email'];
+        $num_lv->service = $data['service'];
+        // $num_lv->device_id = $data['device_id'];
+        $num_lv->save();
+        return redirect()->back();
+
+
     }
 
     /**
@@ -51,10 +68,11 @@ class NumberLevelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Num_lv $numLv)
+    public function show(Num_lv $numlv)
     {
         return view('admin.number_lv.show',[
-            'title' =>'s'
+            'title' =>'Quản lí cấp số',
+            'numlv' => $numlv
         ]);
     }
 
@@ -91,4 +109,5 @@ class NumberLevelController extends Controller
     {
         //
     }
+    
 }

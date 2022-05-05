@@ -66,18 +66,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ( $lstNum as  $key => $numbers )
+                        @foreach ( $lstNum as  $numlv )
                             
                                 <tr>
-                                    <td>{{$numbers->stt}}</td>
-                                    <td>{{$numbers->username_cus}}</td>
-                                    <td>{{$numbers->service_id}}</td>
-                                    <td>{{$numbers->updated_at}}</td>
-                                    <td>{{$numbers->hsd}}</td>
-                                    <td>{{$numbers->status}}</td>
-                                    <td>{{$numbers->device_id}}</td>
+                                    <td>{{$numlv->stt}}</td>
+                                    <td>{{$numlv->username_cus}}</td>
+                                    <td>{{$numlv->service}}</td>
+                                    <td>{{$numlv->updated_at}}</td>
+                                    <td>{{$numlv->hsd}}</td>
+                                    <td>{{$numlv->status}}</td>
+                                    <td>{{$numlv->device_id}}</td>
                                     <td>
-                                        <a href="{{route('numlv.show',['numlv'=>$numbers])}}">Chi tiết</a>
+                                        <a href="{{route('numlv.show',['numlv'=>$numlv])}}">Chi tiết</a>
                                     </td>
                                 </tr>
                         

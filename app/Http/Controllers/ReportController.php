@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Num_lv;
+use App\Models\Device;
 class ReportController extends Controller
 {
     /**
@@ -13,10 +14,12 @@ class ReportController extends Controller
      */
     public function index()
     {
-        
-
+        $device = Device::pluck('device_name','id');
+        $lstNum = Num_lv::all();
         return view('admin.report.list',[
-            'title' => 'Lap bao cao'
+            'title' => ' Lập báo cáo',
+            'lstNum' => $lstNum,
+            'device' => $device
         ]);
     }
 

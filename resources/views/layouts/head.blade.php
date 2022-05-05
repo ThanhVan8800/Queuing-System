@@ -7,12 +7,14 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/templates/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="/templates/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="cplugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/templates/admin/dist/css/adminlte.min.css">
 
     <link rel="stylesheet" href="/style.css">
-
+    <link rel="stylesheet" href="/templates/admin/plugins/toastr/toastr.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/templates/admin/dist/css/adminlte.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- để sử dụng cho ajax -->
     <!-- dùng ajax thì cần phải có cái csrf-token -->
