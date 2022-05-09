@@ -10,10 +10,10 @@
                                 <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Trạng thái hoạt động</label>
-                                                        <select class="form-control select2" style="width: 100%;">
+                                                        <select class="form-control select2" name="status" name="keyword" id="keyword" style="width: 100%;">
                                                             <option selected="selected">Tất cả</option>
-                                                            <option>Hoạt động</option>
-                                                            <option>Ngưng hoạt động</option>
+                                                            <option value="">Hoạt động</option>
+                                                            <option value="status">Ngưng hoạt động</option>
                                                         </select>
                                         </div>
                                 </div>
@@ -28,17 +28,17 @@
                                         </div>
                                 </div>
                                 <div class="col-md-3 offset-md-1">
-                                    <form action="simple-results.html">
+                                    
                                         <label for="">Từ khóa</label>
                                         <div class="input-group">
-                                            <input type="search" class="form-control form-control-lg" style="height:36px;" placeholder="Type your keywords here">
+                                            <input type="text" name="keyword" id="keyword" class="form-control form-control-lg" style="height:36px;" placeholder="Type your keywords here">
                                             <div class="input-group-append">
                                                 <button type="submit" class="btn  btn-default" style="height:36px;">
                                                     <i class="fa fa-search"></i>
                                                 </button>
                                             </div>
                                         </div>
-                                    </form>
+                                
                                 </div>
                     </div>
                     <table class="table table-bordered">
@@ -55,12 +55,11 @@
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="dev">
                         @foreach ($lstDevice as $key => $device)
                                     <tr>
-                                    
                                         <td>{{$device->id_device}}</td>
-                                        <td>{{$device->device_name}}</td>
+                                        <td value="{{$device->device_name}}">{{$device->device_name}}</td>
                                         <td>
                                             {{$device->ip_address}}
                                         </td>
@@ -72,9 +71,9 @@
                                             @endif
                                         </td>
                                         <td>{{$device->status_connect}}</td>
-                                        <td>
-                                            {{Illuminate\Support\Str::of($device->service_use)->words(3)}}
-                                            
+                                        <td value="{{$device->service_use}}">
+                                            <!-- {{Illuminate\Support\Str::of($device->service_use)->words(3)}} -->
+                                            {{$device->service_use}}
                                             <!-- <span>View Blog</span> -->
                                         </td>
                                         
@@ -84,9 +83,6 @@
                                         <td>
                                             <a href="{{route('device.edit',['device' => $device])}}" >Cập nhật</a>
                                         </td>
-                                        
-                                        
-                                        
                                     </tr>
                         @endforeach
                     
@@ -99,5 +95,9 @@
         {!!$lstDevice->links("pagination::bootstrap-4") !!}
 </div>
 @endsection
+@section('footer')
+
+
+@endsection
 <!-- @if (Auth()->user()->isAdmin()) -->
-                                        <!-- @endif -->
+<!-- @endif -->

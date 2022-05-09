@@ -93,7 +93,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="" class="nav-link" >
+                                                <a href="/admin/history/setting" class="nav-link" >
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Nhật ký hoạt động </p>
                                                 </a>

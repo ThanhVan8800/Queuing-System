@@ -129,4 +129,34 @@ class DeviceController extends Controller
     {
         //
     }
+    public function search(Request $request)
+    {
+            $output = '';
+            $lst_Dev = Device::where('device_name','LIKE','%'.$request->keyword.'%')->get();
+            $lst_Devv = Device::where('status','LIKE','%'.$request->keyword.'%')->get();
+
+            foreach($lst_Dev as $device) {
+                $output .='<tr>
+                            <td>'.$device->id_device.'</td>
+                            <td value="'.$device->device_name.'">'.$device->device_name.'</td>
+                            <td>'.$device->ip_address.'</td>
+                            <td value="'.$device->status.'">'.$device->status === '1' ?  'Hoạt động':'Ngưng'.' </td>
+                            <td>'.$device->status_connect.'</td>
+                            <td>
+                                '.$device->service_use.'
+                                
+                                <!-- <span>View Blog</span> -->
+                            </td>
+                            
+                            <td>
+                                <a href="'.route('device.show',['device' => $device]).'">Chi tiết</a>
+                            </td>
+                            <td>
+                                <a href="'.route('device.edit',['device' => $device]).'" >Cập nhật</a>
+                            </td>
+                        </tr>';
+            }
+            
+            return response()->json($output);
+    }
 }

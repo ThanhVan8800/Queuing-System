@@ -9,12 +9,15 @@
     
     <div class="card-body">
                     <div class="row">
+                        <form action="{{url('/admin/reports/download')}}" method="get">
+                            @csrf
                                 <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Chọn thời gian</label>
-                                                        
+                                            <button class="btn btn-warning">Báo cáo</button>
                                         </div>
                                 </div>
+                        </form>
+                                
                             
                     </div>
                     <table class="table table-bordered ">
@@ -39,11 +42,11 @@
                             </td>
                             <td>
                                 @if($num->status == 0)
-                                    Đang chờ
+                                <span class="btn btn-primary btn-xs"></span>Đang chờ
                                 @elseif ($num->status == 1)  
-                                    Đã sử dụng  
+                                <span class="btn btn-secondary btn-xs"></span>Đã sử dụng  
                                 @elseif ($num->status == 2)  
-                                    Bỏ qua
+                                <span class="btn btn-danger btn-xs"></span> Bỏ qua
                                 @endif
                             </td>
                             <td>{{$num->device->device_name }}</td>
@@ -52,7 +55,7 @@
                         
                     </tbody>
                 </table>
-                <button>Tải về</button>
+                
     </div>
     
 </div>

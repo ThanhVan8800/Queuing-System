@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Num_lv;
 use App\Models\Device;
+use App\Models\User;
+use PDF;
+use Auth;
 class ReportController extends Controller
 {
     /**
@@ -87,5 +90,20 @@ class ReportController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function download(){
+    
+        // $pdf = PDF::loadView('admin.report.list', compact('lstNum'),['title' =>'Tải báo cáo']);
+        // return $pdf->download('lstNum.pdf');
+        if(\Auth::check()){
+            $user = \Auth::user();
+            $user_id = $user->id;
+            $lstNum = Num_lv::all();
+
+            //$result = DB::table('education')->where('education.degree' ,'=','PHD')->where('user_id' ,'=', $user_id)->get();
+           // return view('pdf/personalpdf',compact('user', 'result'));
+            $pdf = PDF::loadView('admin/report/list', compact('user','lstNum'),['title' =>'Tải báo cáo']);
+            return $pdf->stream('lstNum.pdf');
+        }
     }
 }

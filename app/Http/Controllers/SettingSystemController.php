@@ -13,7 +13,9 @@ class SettingSystemController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.settings.history',[
+            'title' => 'Nhật ký hoạt động'
+        ]);
     }
 
     /**

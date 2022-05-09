@@ -10,6 +10,7 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,7 @@ Route::middleware(['auth']) -> group(function(){
                         // Route::get('index',[DeviceController::class,'index']);
                         // Route::get('add',[DeviceController::class,'create'])->name('create');
                         // Route::post('add',[DeviceController::class,'store']);
+                        Route::get('search', [DeviceController::class,'search'])->name('search');
                 });
                 Route::prefix('services')->group(function(){
                         Route::resource('service', ServiceController::class);
@@ -50,7 +52,7 @@ Route::middleware(['auth']) -> group(function(){
                 Route::prefix('num_lvs')->group(function(){
                         Route::resource('numlv', NumberLevelController::class);
                 });
-                Route::prefix('settings')->group(function(){
+                Route::prefix('history')->group(function(){
                         Route::resource('setting', SettingSystemController::class);
                 });
                 Route::prefix('users')->group(function(){
@@ -61,6 +63,8 @@ Route::middleware(['auth']) -> group(function(){
                 });
                 Route::prefix('reports')->group(function(){
                         Route::resource('report', ReportController::class);
+                        Route::get('download',[ReportController::class,'download']);
+                        
                 });
                 //upload  
                 Route::post('upload/services',[UploadController::class,'store']);
