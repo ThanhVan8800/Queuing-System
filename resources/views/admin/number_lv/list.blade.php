@@ -74,8 +74,19 @@
                                     <td>{{$numlv->service}}</td>
                                     <td>{{$numlv->updated_at}}</td>
                                     <td>{{$numlv->hsd}}</td>
-                                    <td>{{$numlv->status}}</td>
-                                    <td>{{$numlv->device_id}}</td>
+                                    <td>@if($numlv->status == 0)
+                                        <span class="btn btn-primary btn-xs"></span>Đang chờ
+                                        @elseif ($numlv->status == 1)  
+                                        <span class="btn btn-secondary btn-xs"></span>Đã sử dụng  
+                                        @elseif ($numlv->status == 2)  
+                                        <span class="btn btn-danger btn-xs"></span> Bỏ qua
+                                        @endif
+                                    </td>
+                                    <td>
+                                      {{$numlv->device->device_name}}
+                                                
+                                    
+                                    </td>
                                     <td>
                                         <a href="{{route('numlv.show',['numlv'=>$numlv])}}">Chi tiết</a>
                                     </td>

@@ -92,18 +92,15 @@ class ReportController extends Controller
         //
     }
     public function download(){
-    
-        // $pdf = PDF::loadView('admin.report.list', compact('lstNum'),['title' =>'Tải báo cáo']);
+        $device = Device::pluck('device_name','id');
+        $lstNum = Num_lv::all();
+        $pdf = PDF::loadView('admin.report.pdf', compact('lstNum','device'),['title' =>'Tải báo cáo']);
         // return $pdf->download('lstNum.pdf');
-        if(\Auth::check()){
-            $user = \Auth::user();
-            $user_id = $user->id;
-            $lstNum = Num_lv::all();
+
 
             //$result = DB::table('education')->where('education.degree' ,'=','PHD')->where('user_id' ,'=', $user_id)->get();
            // return view('pdf/personalpdf',compact('user', 'result'));
-            $pdf = PDF::loadView('admin/report/list', compact('user','lstNum'),['title' =>'Tải báo cáo']);
-            return $pdf->stream('lstNum.pdf');
-        }
+            return $pdf->download('lstNum.pdf');
+        
     }
 }

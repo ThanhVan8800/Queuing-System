@@ -159,4 +159,23 @@ class DeviceController extends Controller
             
             return response()->json($output);
     }
+    public function filter(Request $request)
+    {
+        $lstDevice = Device::orderByDesc('id')->paginate(7);
+            $device = DB::table('Devices')->get();
+            if($request->status_connect)
+            {
+                // dd($request->status_connect);
+                $result = Device::where('status_connect','LIKE','%'.$request->status_connect.'%')->get();
+                // dd($result);
+            }
+            if($request->status)
+            {
+                // dd($request->status_connect);
+                $result = Device::where('status','LIKE','%'.$request->status.'%')->get();
+                // dd($result);
+            }
+            
+            return view('admin.device.search',compact('device','lstDevice'),['title' => 'ds','result'=>$result]);
+    }
 }

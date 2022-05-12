@@ -15,6 +15,7 @@
                                                             <option selected="selected">Tất cả</option>
                                                             @foreach ($lstDevice as $stt)
                                                             <option value="{{$stt->status}}">
+                                                            <option value="{{$stt->status}}">
                                                                 @if($stt->status == 3) 
                                                                     Hoạt động 
                                                                 @elseif($stt->status == 2) Ngưng hoạt động
@@ -33,10 +34,10 @@
                                                         <select class="form-control select2" name="status_connect" style="width: 100%;">
                                                             <option selected="selected">Tất cả</option>
                                                             @foreach ($lstDevice as $stt)
-                                                            <option value="{{$stt->status_connect}}">
-                                                                @if($stt->status_connect == 1) 
-                                                                Không  kết nối 
-                                                                @elseif($stt->status_connect == 2) Đã Kết nối 
+                                                            <option value="{{$stt->status_connect}}">@if($stt->status_connect == 2) 
+                                                                     Đã kết nối 
+                                                                @elseif($stt->status_connect == 1) Không kết nối 
+                                                                @else KHông tìm thấy kết quả
                                                                 @endif</option>
                                                                 
                                                             @endforeach
@@ -73,24 +74,25 @@
                         </tr>
                     </thead>
                     <tbody id="dev">
-                        @foreach ($lstDevice as $key => $device)
+                        @foreach ($result as $key => $device)
                                     <tr>
                                         <td>{{$device->id_device}}</td>
                                         <td value="{{$device->device_name}}">{{$device->device_name}}</td>
                                         <td>
                                             {{$device->ip_address}}
                                         </td>
-                                        <td>
-                                        @if($stt->status == 3) 
+                                        <td value="{{$device->status}}">
+                                        @if($device->status == 3) 
                                                                     Hoạt động 
-                                                                @elseif($stt->status == 2) Ngưng hoạt động
+                                        @elseif($device ->status == 2) Ngưng hoạt động
                                                                 @endif
                                         </td>
                                         <td>
-                                            @if($device->status_connect == 1)   
-                                                  không kết nối
-                                            @elseif($device->status_connect == 2)
-                                                  Kết nối
+                                            @if($device->status_connect == 2)   
+                                                Đã kết nối
+                                            @elseif($device->status_connect == 1)
+                                                Không Kết nối
+                                                @else Không tìm thấy
                                             @endif
                                         </td>
                                         <td value="{{$device->service_use}}">

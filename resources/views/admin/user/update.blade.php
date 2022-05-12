@@ -94,13 +94,16 @@
                                                 <label for="">Hình ảnh</label>
                     <div class="custom-file">
                         <img style="left:50px;width:100px;max-height:100px;object-fit:contain" src="{{$user->thumb}}">
-                    <input type="file" accept="image/*" name="thumb"><br>
-</div>  
+                        <input type="file" accept="image/*" name="thumb"><br>
+                    </div>  
                                                 </div>
                                             </div>
                         
                         </div>
-                        <label for="" style="color: #7E7D88;"><span style="color:#FF4747;">*</span> Là trường thông tin bắt buộc</label>
+                        <div class="form-group">
+
+                            <label for="" style="color: #7E7D88;margin-top:50px;"><span style="color:#FF4747;">*</span> Là trường thông tin bắt buộc</label>
+                        </div>
                         
         </div>
         

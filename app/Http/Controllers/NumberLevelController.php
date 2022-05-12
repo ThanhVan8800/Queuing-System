@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Num_lv;
 use App\Models\Service;
+use App\Models\Device;
 
 class NumberLevelController extends Controller
 {
@@ -15,10 +16,12 @@ class NumberLevelController extends Controller
      */
     public function index()
     {
-        $lstNum = Num_lv::all();
+        $dev = Device::pluck('device_name','id');
+        $lstNum = Num_lv::with('device')->get();
         return view('admin.number_lv.list',[
             'title' => ' Danh sách cấp số',
-            'lstNum' => $lstNum
+            'lstNum' => $lstNum,
+            'dev' => $dev
         ]);
     }
 

@@ -41,6 +41,7 @@ Route::middleware(['auth']) -> group(function(){
                 Route::prefix('devices') -> group(function(){
                         //thiết bị
                         Route::resource('device',DeviceController::class);
+                        Route::get('filter',[DeviceController::class,'filter'])->name('filter');
                         // Route::get('index',[DeviceController::class,'index']);
                         // Route::get('add',[DeviceController::class,'create'])->name('create');
                         // Route::post('add',[DeviceController::class,'store']);

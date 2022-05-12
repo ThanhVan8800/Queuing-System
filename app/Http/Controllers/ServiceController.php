@@ -77,9 +77,11 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
+        $lstService = Service::all();
         return view('admin.service.show',[
             'title' => 'Chi tiết dịch vụ',
-            'service' => $service
+            'service' => $service,
+            'lstService' => $lstService
         ]);
     }
 
@@ -91,11 +93,11 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        $ser = Service::find($service);
         $lstService = Service::all();
 
         return view('admin.service.update',[
             'title' => 'Cập nhật dịch vụ',
+            'service' => $service,
             'lstService' => $lstService,
         ]);
     }
@@ -110,13 +112,12 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $data = $request->all();
-        $service = Service::find($service);
+        //$service = Service::find($service);
         $service->id_service = $data['id_service'];
         $service->service_name = $data['service_name'];
         $service->description = $data['description'];
         $service->status = $data['status'];
         $service->save();
-
         return redirect()->route('service.index');
     }
 
