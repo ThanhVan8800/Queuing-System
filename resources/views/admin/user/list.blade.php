@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="card card-primary mt-3"><br>
-    <a href="{{route('user.create')}}">
-        <label for="" class="ad-dev"><i class="fas fa-plus-circle" >Thêm thiết bị</i></label>
-    </a>
+    
     <div class="card-body">
                     <div class="row">
                                 <div class="col-md-3">
@@ -83,7 +81,9 @@
                                                 Ngưng hoạt động
                                             @endif
                                         </td>
-                                        <td><img style="width:100px;max-height:100px;object-fit:contain" src="{{asset('/storage/'.$user->thumb)}}"></td>
+                                        <td>
+                                            <img style="width:100px;max-height:100px;object-fit:contain" src="{{asset('/storage/'.$user->thumb)}}">
+                                        </td>
                                         <td>
                                             <a href="{{route('user.edit',['user'=>$user])}}">Cập nhật</a>
                                         </td>
@@ -94,6 +94,13 @@
                             @endforeach
                     </tbody>
                     </table>
+                    <a href="{{route('user.create')}}" style="position: static;
+                                            left: 100%;
+                                            right: -100%;
+                                            top: 100%;
+                                            bottom: -100%;color: #FF9138;">
+        <label for="" class="ad-dev"><i class="fas fa-plus-circle" >Thêm thiết bị</i></label>
+    </a>
     </div>
     
 </div>

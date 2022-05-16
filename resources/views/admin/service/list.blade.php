@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="card card-primary mt-3"><br>
-    <a href="{{route('service.create')}}">
-        <label for="" class="ad-dev"><i class="fas fa-plus-circle" >Thêm thiết bị</i></label>
-    </a>
+    
     <div class="card-body">
                     <div class="row">
                                 <div class="col-md-3">
@@ -50,7 +48,13 @@
                         <th style="width: 171px" class="id-dev">Trạng thái hoạt động</th>
                         <th style="width:82px" class="id-dev"></th>
                         <th style="width:82px" class="id-dev"></th>
-
+                        <th style="width:82px"><a href="{{route('service.create')}}" style="position: static;
+                                            left: 100%;
+                                            right: -100%;
+                                            top: 100%;
+                                            bottom: -100%;color: #FF9138;"><i class="fas fa-plus-circle" style="margin-left:85px"></i>
+                            <label for="" class="ad-dev">Thêm thiết bị</label>
+                            </a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,6 +78,7 @@
                     
                     </tbody>
                     </table>
+                    
     </div>
 </div>
 <div class="card-footer clearfix">

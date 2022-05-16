@@ -2,10 +2,9 @@
 
 @section('content')
 <div class="card card-primary mt-3"><br>
-    <a href="{{route('numlv.create')}}">
-        <label for="" class="ad-dev"><i class="fas fa-plus-circle" >Thêm thiết bị</i></label>
-    </a>
+    
     <div class="card-body">
+    
                     <div class="row">
                                 <div class="col-md-1">
                                         <div class="form-group ">
@@ -50,6 +49,7 @@
                                         </div>
                                     </form>
                                 </div>
+                                        
                     </div>
                     <table class="table table-bordered ">
                     <thead class="">
@@ -62,8 +62,17 @@
                         <th style="width:82px" class="id-dev">Trạng thái</th>
                         <th style="width:82px" class="id-dev">Nguồn cấp</th>
                         <th style="width:82px" class="id-dev"></th>
-
+                        <th style="width:82px">
+                            <a href="{{route('numlv.create')}}" class="" style="position: static;
+                                                left: 100%;
+                                                right: -100%;
+                                                top: 100%;
+                                                bottom: -100%;color: #FF9138;"><i class="fas fa-plus-circle" style="font-size:20px; margin-left:82px" ></i>
+                                                <label for="" class="ad-dev">Thêm thiết bị</label>
+                            </a>    
+                        </th>
                         </tr>
+                        
                     </thead>
                     <tbody>
                         @foreach ( $lstNum as  $numlv )
@@ -83,7 +92,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                      {{$numlv->device->device_name}}
+                                        {{$numlv->device->device_name}}
                                                 
                                     
                                     </td>
@@ -95,6 +104,7 @@
                         @endforeach
                     </tbody>
                     </table>
+                    
     </div>
 </div>
 <div class="card-footer clearfix">

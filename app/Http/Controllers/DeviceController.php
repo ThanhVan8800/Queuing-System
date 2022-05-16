@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Device;
 use App\Models\User;
 use DB;
+use Auth;
 use Illuminate\Support\Str;
 class DeviceController extends Controller
 {
@@ -161,21 +162,26 @@ class DeviceController extends Controller
     }
     public function filter(Request $request)
     {
+        if(Auth::user() -> role == 'accountant'){
+
+        
         $lstDevice = Device::orderByDesc('id')->paginate(7);
             $device = DB::table('Devices')->get();
             if($request->status_connect)
             {
-                // dd($request->status_connect);
+                // return dd($request->status_connect);
                 $result = Device::where('status_connect','LIKE','%'.$request->status_connect.'%')->get();
-                // dd($result);
             }
             if($request->status)
             {
-                // dd($request->status_connect);
+                // return dd($request->status);
                 $result = Device::where('status','LIKE','%'.$request->status.'%')->get();
-                // dd($result);
             }
             
             return view('admin.device.search',compact('device','lstDevice'),['title' => 'ds','result'=>$result]);
+        }
+        else{
+            return redirect()->back();
+        }
     }
 }

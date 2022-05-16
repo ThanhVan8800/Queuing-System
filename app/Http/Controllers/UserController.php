@@ -19,9 +19,10 @@ class UserController extends Controller
         if(Storage::disk('public')->exists($user->thumb)){
             $user->thumb = Storage::url($user->thumb);
         }else{
-            $user->thumb = '';
-            // khi khoong co' anh 
-        }
+            
+            $user->thumb ='/thumb/no_image.png';
+        
+    }
 
     }
     public function index(User $user)

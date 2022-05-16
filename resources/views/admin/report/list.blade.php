@@ -11,13 +11,16 @@
                     <div class="row">
                         <form action="{{url('/admin/reports/download')}}" method="get">
                             @csrf
-                                <div class="col-md-3">
-                                        <div class="form-group">
-                                            <button class="btn btn-warning">Báo cáo</button>
-                                        </div>
-                                </div>
-                        </form>
                                 
+                        </form>
+                        <div class="from-group">
+
+                            <label for="">Chọn thời gian</label><br>
+                            
+                            <input type="date">
+                            <input type="date">
+                        </div>
+
                             
                     </div>
                     <table class="table table-bordered ">
@@ -28,8 +31,12 @@
                         <th style="width: 138px;" class="id-dev">Thời gian cấp</th>
                         <th style="width: 171px" class="id-dev">Tình trạng </th>
                         <th style="width: 171px" class="id-dev">Nguồn cấp</th>
+                        <th style="width: 171px"><div class="col-md-3">
+                                        <div class="form-group">
+                                            <button class="btn btn-warning">Tải về</button>
+                                        </div>
+                                </div></th>
                         
-
                         </tr>
                     </thead>
                     <tbody>

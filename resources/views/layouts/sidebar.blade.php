@@ -34,7 +34,8 @@
                             with font-awesome or any other icon font library -->
                             <li class="nav-item">
                                 <a href="/admin/dashboards/dashboard" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
+
+                                <i class="nav-icon fas fa-solid fa-fax"></i>
                                 <p>
                                     Dashboard
                                 
@@ -44,7 +45,8 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/devices/device" class="nav-link">
-                                        <i class="nav-icon fas fa-users"></i>
+                                        <!-- <i class="nav-icon fas fa-users"></i> -->
+                                        <i class="nav-icon fas fa-solid fa-desktop"></i>
                                         <p>
                                             Thiết bị
                                             <!-- <i class="right fas fa-angle-left"></i> -->
@@ -65,7 +67,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/num_lvs/numlv"class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt "></i>
+                                <i class="nav-icon fas fa-copy "></i>
                                     Cấp số
                                 </a>
                             
@@ -73,11 +75,12 @@
                             <li class="nav-item">
                                 <a href="/admin/settings/setting" class="nav-link" >
                                         <!-- <i class="nav-icon far fa-calendar-alt "></i> -->
-                                        <i class="nav-icon far fa-solid fa-calendar"></i>
-                                        <p>
-                                            Cài đặt hệ thống
-                                            <i class="right fas fa-angle-left"></i>
-                                        </p>
+                                        <!-- <i class="nav-icon far fa-solid fa-calendar"></i> -->
+                                        <!-- <i class="nav-icon fas fa-solid"></i> -->
+                                        <i class="nav icon fas fa-solid fa-wrench">
+                                        <!-- <i class="fa-solid fa-wrench"></i> -->
+                                                <p> Cài đặt hệ thống</p>
+                                        </i>                                    
                                         <ul class="nav nav-treeview">
                                             <li class="nav-item">
                                                 <!-- ghi đường dẫn vô -->
@@ -122,7 +125,12 @@
                     
                     <form action="{{route('logout')}}" method="post">
                         @csrf
-                        <input type="submit" value="Đăng xuất" class="btn btn-logout mt-5  " style="color:#FF7506;">
+                        
+                        <button type="submit" value="Đăng xuất" class="btn btn-logout mt-5  " style="color:#FF7506;">
+                        
+                        <i class="fas fa-sign-out-alt"></i>Đăng xuất
+                    
+                        </button>
                         <!-- <i class="fas fa-sign-out-alt"></i> -->
                     </form>
                 @endauth

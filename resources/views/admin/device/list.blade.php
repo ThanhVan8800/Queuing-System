@@ -3,9 +3,7 @@
 @section('content')
 <form action="{{route('filter')}}" method="GET">
 <div class="card card-primary mt-3"><br>
-    <a href="{{route('device.create')}}">
-        <label for="" class="ad-dev"><i class="fas fa-plus-circle" >Thêm thiết bị</i></label>
-    </a>
+    
     <div class="card-body">
                     <div class="row">
                                 <div class="col-md-3">
@@ -69,7 +67,15 @@
                         <th style="width: 268px;" class="id-dev">Dịch vụ sử dụng</th>
                         <th style="width:82px" class="id-dev"></th>
                         <th style="width:82px" class="id-dev"></th>
-
+                        <th>
+                            <a href="{{route('device.create')}}" style="position: static;
+                                                left: 100%;
+                                                right: -100%;
+                                                top: 100%;
+                                                bottom: -100%;color: #FF9138;"><i class="fas fa-plus-circle" style="margin-left: 89px;"></i><br>
+                                <label for="" class="ad-dev">Thêm thiết bị</label>
+                            </a>
+                        </th>
                         </tr>
                     </thead>
                     <tbody id="dev">
@@ -81,16 +87,16 @@
                                             {{$device->ip_address}}
                                         </td>
                                         <td>
-                                        @if($stt->status == 3) 
+                                        @if($device->status == 3) 
                                                                     Hoạt động 
-                                                                @elseif($stt->status == 2) Ngưng hoạt động
+                                                                @elseif($device->status == 2) Ngưng hoạt động
                                                                 @endif
                                         </td>
                                         <td>
                                             @if($device->status_connect == 1)   
-                                                  không kết nối
+                                                không kết nối
                                             @elseif($device->status_connect == 2)
-                                                  Kết nối
+                                                Kết nối
                                             @endif
                                         </td>
                                         <td value="{{$device->service_use}}">
@@ -110,6 +116,7 @@
                     
                     </tbody>
                     </table>
+                    
     </div>
     
 </div>
