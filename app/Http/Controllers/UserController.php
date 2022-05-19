@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use DB;
+use Carbon\Carbon;
+use Brian2694\Toastr\Facades\Toastr;
 
 class UserController extends Controller
 {
@@ -60,26 +63,29 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required',
-            'password' => 'required|min:6|'
-        ]);
-        $data = $request->all();
+        try{
+            $data = $request->all();
 
-        $user = new User();
-        $user->username = $data['username'];
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->sdt = $data['sdt'];
-        $user->password = Hash::make($data['password']);
-        $user->role = $data['role'];
-        $user->status = $data['status'];
-        $user->thumb = '';
-        $user->save();
-        if($request->hasFile('thumb')){
-            $user->thumb = $request->file('thumb')->store('thumb/us/'.$user->id,'public');
+            $user = new User();
+            $user->username = $data['username'];
+            $user->name = $data['name'];
+            $user->email = $data['email'];
+            $user->sdt = $data['sdt'];
+            $user->password = Hash::make($data['password']);
+            $user->role = $data['role'];
+            $user->status = $data['status'];
+            $user->thumb = '';
+            $user->save();
+            if($request->hasFile('thumb')){
+                $user->thumb = $request->file('thumb')->store('thumb/us/'.$user->id,'public');
+            }
+            Toastr()->success('haha','Success');
+            $user->save();
+            return redirect()->route('user.create');
+        }catch(Exception $e){
+            Toastr::error($e->getMessage);
         }
-        $user->save();
+        
         return Redirect::route('user.index',['user'=>$user]);
     }
 
@@ -124,7 +130,7 @@ class UserController extends Controller
      */
     public function update(Request $request,User $user)
     {
-    
+        
         if($request->hasFile('thumb')){
             $user->thumb = $request->file('thumb')->store('thumb/us/'.$user->id,'public');
         }
@@ -138,6 +144,24 @@ class UserController extends Controller
         $user->password = Hash::make($data['password']);
         $user->role = $data['role'];
         $user->status = $data['status'];
+
+        $dt = Carbon::now();
+        $todayDate = $dt->toDayDateTimeString();
+        // dd($todayDate);
+        //userLog
+        $activity = [
+            'user_name' => $data['username'],
+            'email' => $data['email'],
+            'phone_number' => $data['sdt'],
+            // 'password' => Hash::make($data['password']),
+            // 'role' => $data['role'],
+            'status' => $data['status'],
+            'modify_user' => 'Update',
+            'date_time' => $todayDate
+        ];
+        // return dd($activity);
+
+        DB::table('user_activities')->insert($activity);
         // $user->fill([
         //     'username' => $request->input('username'),
         //     'name' => $request->input('name'),

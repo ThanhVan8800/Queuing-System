@@ -27,7 +27,7 @@ class HomeController extends Controller
         
         return view('layouts.main',[
             'title' => __('Dashboard'),
-           
+        
         ]);
     }
 }

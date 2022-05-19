@@ -1,14 +1,17 @@
 @extends('layouts.main')
-
+@section('head')
+@toastr_css 
+@endsection
 @section('content')
 <form action="{{route('user.store')}}" method="post" enctype="multipart/form-data">
     <div class="card card-primary mt-3">
         <div class="card-body">
-                        <div class="col-md-3">
-                                <div class="form-group">
-                                                <label style="color:#FF7506;">Thông tin tài khoản</label>
-                                </div>
-                        </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label style="color:#FF7506;">Thông tin tài khoản</label>
+                </div>
+            </div>
+            {!! Toastr::message()!!}
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label >Họ tên: <span style="color:#FF4747;">*</span> </label>
@@ -87,5 +90,8 @@
         <button class="btn-create">Thêm thiết bị</button>
         @csrf
     </div>
+    @jquery 
+    @toastr_js 
+    @toastr_render 
 </form>
 @endsection

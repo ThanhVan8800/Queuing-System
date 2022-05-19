@@ -13,7 +13,7 @@
             @method('PATCH')
     @csrf      
 
-    <div class="card-body">
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-4 margin-top-img ">
                     <img src="{{asset('/storage/'.$user->thumb)}}" alt="" class="avatar-user" >

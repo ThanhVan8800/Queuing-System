@@ -16,6 +16,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="/templates/admin/dist/css/adminlte.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="toastr.css" rel="stylesheet"/>
+    <script src="toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- để sử dụng cho ajax -->
     <!-- dùng ajax thì cần phải có cái csrf-token -->
     @yield('head')
